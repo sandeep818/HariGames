@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:id="@+id/market_card"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginRight="5dp"
+    android:layout_weight="1"
+    android:gravity="center"
+    android:padding="20dp"
+    android:orientation="vertical"
+    app:cardCornerRadius="25dp"
+    app:cardUseCompatPadding="true">
+
+
+    <RelativeLayout
+        android:id="@+id/rlw"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="20dp">
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+
+            android:src="@drawable/home" />
+
+        <TextView
+            android:id="@+id/market_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView1"
+            android:layout_centerHorizontal="true"
+
+            android:layout_marginBottom="10dp"
+            android:text="Market Name"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/start_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/market_title"
+            android:text="12:24 AM"
+            android:textColor="#33691E"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/end_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/market_title"
+            android:layout_toRightOf="@id/start_time"
+            android:paddingLeft="20dp"
+            android:text="12:24 AM"
+            android:textColor="#E65100"
+            android:textSize="10dp" />
+
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

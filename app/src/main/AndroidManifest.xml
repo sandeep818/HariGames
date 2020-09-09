@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.games.harigames">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/roundlogo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Login_Ragister.Ragister_user"></activity>
+        <activity android:name=".admin.Master_details" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Intro" />
+        <activity android:name=".Master.Home_master" />
+        <activity android:name=".admin.Market_details" />
+        <activity android:name=".Login_Ragister.Login" />
+        <activity android:name=".Login_Ragister.Ragister_Master" />
+        <activity android:name=".admin.Home_admin" />
+        <activity android:name=".admin.Add_market" />
+        <activity android:name=".admin.View_market" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

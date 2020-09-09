@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1079616584696",
+    "firebase_url": "https://hari-games.firebaseio.com",
+    "project_id": "hari-games",
+    "storage_bucket": "hari-games.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1079616584696:android:2484d0338e210864c8f40d",
+        "android_client_info": {
+          "package_name": "com.games.harigames"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1079616584696-rr7shf58bgv0ll3t6eu7gfjr105ve9ab.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7l02OcjaJgRIqRvsjZs_3O5Ggxl0xvSs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1079616584696-rr7shf58bgv0ll3t6eu7gfjr105ve9ab.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

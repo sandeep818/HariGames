@@ -1,0 +1,85 @@
+{
+  "project_info": {
+    "project_number": "721952354250",
+    "firebase_url": "https://hari-game-zone.firebaseio.com",
+    "project_id": "hari-game-zone",
+    "storage_bucket": "hari-game-zone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:721952354250:android:38ca0623cca8d16daca933",
+        "android_client_info": {
+          "package_name": "com.games.harigames"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "721952354250-elu7ohion6iokk0ompd2vrgm6po4s4eh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.games.harigames",
+            "certificate_hash": "4195f3910c01d3bee4b15517b02e99524253d7e4"
+          }
+        },
+        {
+          "client_id": "721952354250-083l7b0fgk6um1mvsfg3f6623vhvcs1s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA306C0wPA6u0-obeIvZT9nQWz9hPWsd4E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "721952354250-083l7b0fgk6um1mvsfg3f6623vhvcs1s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:721952354250:android:48e646c80e9ab46baca933",
+        "android_client_info": {
+          "package_name": "com.jungle.twiter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "721952354250-nvi04bar6frhg9n214racmon31pig1c5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jungle.twiter",
+            "certificate_hash": "4195f3910c01d3bee4b15517b02e99524253d7e4"
+          }
+        },
+        {
+          "client_id": "721952354250-083l7b0fgk6um1mvsfg3f6623vhvcs1s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA306C0wPA6u0-obeIvZT9nQWz9hPWsd4E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "721952354250-083l7b0fgk6um1mvsfg3f6623vhvcs1s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
