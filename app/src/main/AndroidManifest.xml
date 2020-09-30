@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.games.harigames">
+    package="com.games.harigames"
+    android:usesCleartextTraffic="true"
+    android:versionCode="1"
+    android:versionName="1.0">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -12,7 +17,13 @@
         android:roundIcon="@drawable/roundlogo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Login_Ragister.Ragister_user"></activity>
+        <activity android:name=".User.Jodi_bet_Activity"></activity>
+        <activity android:name=".User.Single_digitBet" />
+        <activity android:name=".User.Bet_optionActivity" />
+        <activity android:name=".Master.View_market" />
+        <activity android:name=".admin.Master_usersDetail" />
+        <activity android:name=".User.Play_earn" />
+        <activity android:name=".Login_Ragister.Ragister_user" />
         <activity android:name=".admin.Master_details" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -23,6 +34,7 @@
         </activity>
         <activity android:name=".Intro" />
         <activity android:name=".Master.Home_master" />
+        <activity android:name=".User.Home_user" />
         <activity android:name=".admin.Market_details" />
         <activity android:name=".Login_Ragister.Login" />
         <activity android:name=".Login_Ragister.Ragister_Master" />

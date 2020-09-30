@@ -7,7 +7,7 @@
     android:fitsSystemWindows="true"
     android:id="@+id/drawer_layout">
 
-    <include layout="@layout/activity_home"
+    <include layout="@layout/user_home_main"
         android:layout_height="match_parent"
         android:layout_width="match_parent"/>
     <com.google.android.material.navigation.NavigationView

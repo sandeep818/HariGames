@@ -1,6 +1,7 @@
 package com.games.harigames.Master;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -10,6 +11,11 @@ import com.games.harigames.R;
 import com.games.harigames.admin.Add_market_model;
 import com.games.harigames.market.Market_cardview_adapter;
 import com.games.harigames.market.Market_model;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -19,7 +25,7 @@ public class View_market extends AppCompatActivity {
     Market_cardview_adapter cardview_adapter;
 
 
-    ArrayList<Market_model> marketModels;
+    ArrayList<Add_market_model> marketModels = new ArrayList<>();
 
 
     @Override
@@ -31,7 +37,35 @@ public class View_market extends AppCompatActivity {
 
 
 
+        try {
 
+            DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Market");
+            ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                                                   @Override
+                                                   public void onDataChange(DataSnapshot dataSnapshot) {
+                                                       ArrayList<Add_market_model> marketDataModels = new ArrayList<Add_market_model>();
+                                                       for (DataSnapshot userSnapshot: dataSnapshot.getChildren()) {
+                                                           Add_market_model allDataModel = userSnapshot.getValue(Add_market_model.class);
+                                                           marketDataModels.add(allDataModel);
+                                                           marketModels.add(allDataModel);
+                                                           Log.d("allu", "onDataChange: "+marketModels.toString());
+
+                                                       }
+
+                                                       getMarket(marketDataModels);
+                                                       System.out.println(marketModels.toString());
+                                                   }
+
+                                                   @Override
+                                                   public void onCancelled(DatabaseError databaseError) {
+                                                       throw databaseError.toException();
+                                                   }
+                                               }
+            );
+
+        }catch (Exception e){
+            Log.d("market", "onCreate: "+e);
+        }
 
     }
 //    private ArrayList<Market_model> listdata(){

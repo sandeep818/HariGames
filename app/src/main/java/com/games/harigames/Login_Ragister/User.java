@@ -31,5 +31,91 @@ public class User {
         this.downLine = downLine;
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCreated_by() {
+        return created_by;
+    }
+
+    public void setCreated_by(String created_by) {
+        this.created_by = created_by;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getCredit_ref() {
+        return credit_ref;
+    }
+
+    public void setCredit_ref(String credit_ref) {
+        this.credit_ref = credit_ref;
+    }
+
+    public String getExposer_limit() {
+        return exposer_limit;
+    }
+
+    public void setExposer_limit(String exposer_limit) {
+        this.exposer_limit = exposer_limit;
+    }
+
+    public String getUpLine() {
+        return upLine;
+    }
+
+    public void setUpLine(String upLine) {
+        this.upLine = upLine;
+    }
+
+    public String getDownLine() {
+        return downLine;
+    }
+
+    public void setDownLine(String downLine) {
+        this.downLine = downLine;
+    }
 }

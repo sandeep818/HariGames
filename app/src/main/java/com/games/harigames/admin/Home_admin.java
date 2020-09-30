@@ -195,16 +195,12 @@ public class Home_admin extends AppCompatActivity implements BottomNavigationVie
             case R.id.bid:
                 getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.frame_layout,bid_fragment).commit();
                 return true;
-            case R.id.wallet:
-                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.frame_layout,wallet_fragment).commit();
-                return true;
+
 
             case R.id.message:
                 getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.frame_layout,support_fragment).commit();
                 return true;
-            case R.id.details:
-                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in,R.anim.fade_out).replace(R.id.frame_layout, details_admin_fragment).commit();
-                return true;
+
 
         }
         return false;

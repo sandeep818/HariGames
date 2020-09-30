@@ -18,7 +18,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.games.harigames.Master.Home_master;
 import com.games.harigames.R;
+import com.games.harigames.User.Home_user;
 import com.games.harigames.admin.Home_admin;
+import com.games.harigames.getAllUser.UserAllDataModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -40,6 +42,7 @@ public class Login extends AppCompatActivity {
     String user_pass;
     RelativeLayout prelativeLayout;
     ProgressBar progressBar;
+    String roles ,upass;
     @Override
     protected void onStop() {
 
@@ -66,91 +69,94 @@ public class Login extends AppCompatActivity {
         prelativeLayout.setVisibility(View.GONE);
 
 
-        Intent intent = new Intent(Login.this, Home_admin.class);
-        intent.putExtra("user", "sasas");
-
-
-        startActivity(intent);
+//      Intent intent = new Intent(Login.this, Home_admin.class);
+////       intent.putExtra("user", "sasas");
+////
+////
+////        startActivity(intent);
 
 
         // Initialize Firebase Auth
-        mAuth = FirebaseAuth.getInstance();
-
-        // Check if user is signed in (non-null) and update UI accordingly.
-
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            // Name, email address, and profile photo Url
-            String name = user.getDisplayName();
-            final String emails = user.getEmail();
-
-
-            // Check if user's email is verified
-            boolean emailVerified = user.isEmailVerified();
-
-            // The user's ID, unique to the Firebase project. Do NOT use this value to
-            // authenticate with your backend server, if you have one. Use
-            // FirebaseUser.getIdToken() instead.
-            String uid = user.getUid();
-            FirebaseDatabase database = FirebaseDatabase.getInstance();
-            DatabaseReference myRef = database.getReference().child("User");
-
-// Read from the database
-            myRef.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    // This method is called once with the initial value and again
-                    // whenever data at this location is updated.
-                  for (DataSnapshot snapshot:dataSnapshot.getChildren()){
-                      User value = snapshot.getValue(User.class);
-                      Log.d("databse", "Value is: " + value.role.toString());
-                      if (value.userName.equals(emails.toString())) {
-                          if (value.role.contains("Master")){
-                              Toast.makeText(getApplicationContext(), "Master Login success", Toast.LENGTH_SHORT).show();
-                              Intent intent = new Intent(Login.this, Home_master.class);
-                              intent.putExtra("user", emails);
-
-
-                              startActivity(intent);
-
-                              return;
-                          }
-                          if (value.role.contains("Admin")){
-                              Toast.makeText(getApplicationContext(), "success", Toast.LENGTH_SHORT).show();
-                              Intent intent = new Intent(Login.this, Home_admin.class);
-                              intent.putExtra("user", emails);
-
-
-                              startActivity(intent);
-
-                              return;
-                          }
-
-                          Toast.makeText(getApplicationContext(), "success", Toast.LENGTH_SHORT).show();
-                          Intent intent = new Intent(Login.this, Home_admin.class);
-                          intent.putExtra("user", emails);
-
-
-                          startActivity(intent);
-                          return;
-                      }
-
-
-
-                      } progressBar.setVisibility(View.GONE);
-                      prelativeLayout.setVisibility(View.GONE);
-                    Toast.makeText(Login.this, "Something Wrong", Toast.LENGTH_SHORT).show();
-                }
-
-                @Override
-                public void onCancelled(DatabaseError error) {
-                    // Failed to read value
-                    Log.d("database", "Failed to read value.", error.toException());
-                }
-            });
-
-
-        }
+//        mAuth = FirebaseAuth.getInstance();
+//
+//        // Check if user is signed in (non-null) and update UI accordingly.
+//
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        if (user != null) {
+//            // Name, email address, and profile photo Url
+//            String name = user.getDisplayName();
+//            final String emails = user.getEmail();
+//
+//
+//            // Check if user's email is verified
+//            boolean emailVerified = user.isEmailVerified();
+//
+//            // The user's ID, unique to the Firebase project. Do NOT use this value to
+//            // authenticate with your backend server, if you have one. Use
+//            // FirebaseUser.getIdToken() instead.
+//            String uid = user.getUid();
+//            FirebaseDatabase database = FirebaseDatabase.getInstance();
+//            DatabaseReference myRef = database.getReference().child("User");
+//
+//// Read from the database
+//            myRef.addValueEventListener(new ValueEventListener() {
+//                @Override
+//                public void onDataChange(DataSnapshot dataSnapshot) {
+//                    // This method is called once with the initial value and again
+//                    // whenever data at this location is updated.
+//                  for (DataSnapshot snapshot:dataSnapshot.getChildren()){
+//                      User value = snapshot.getValue(User.class);
+//                      Log.d("databse", "Value is: " + value.role.toString());
+//                      if (value.userName.equals(emails.toString())) {
+//                          if (value.role.contains("Master")){
+//                              savePrefsData(emails);
+//                              Toast.makeText(getApplicationContext(), "Master Login success", Toast.LENGTH_SHORT).show();
+//                              Intent intent = new Intent(Login.this, Home_master.class);
+//                              intent.putExtra("user", emails);
+//
+//
+//                              startActivity(intent);
+//
+//                              return;
+//                          }
+//                          if (value.role.contains("Admin")){
+//                              Toast.makeText(getApplicationContext(), "success", Toast.LENGTH_SHORT).show();
+//                              Intent intent = new Intent(Login.this, Home_admin.class);
+//                              intent.putExtra("user", emails);
+//
+//
+//                              startActivity(intent);
+//
+//                              return;
+//                          }
+//
+//                          if (value.role.contains("User")){
+//                              Toast.makeText(getApplicationContext(), "User Login success", Toast.LENGTH_SHORT).show();
+//                              Intent intent = new Intent(Login.this, Home_user.class);
+//                              intent.putExtra("user", emails);
+//
+//
+//                              startActivity(intent);
+//                              return;
+//                          }
+//                      }
+//
+//
+//
+//                      } progressBar.setVisibility(View.GONE);
+//                      prelativeLayout.setVisibility(View.GONE);
+//                    Toast.makeText(Login.this, "Something Wrong", Toast.LENGTH_SHORT).show();
+//                }
+//
+//                @Override
+//                public void onCancelled(DatabaseError error) {
+//                    // Failed to read value
+//                    Log.d("database", "Failed to read value.", error.toException());
+//                }
+//            });
+//
+//
+//        }
 
 
         if (restorePrefData()){
@@ -159,16 +165,24 @@ public class Login extends AppCompatActivity {
             String user_role= preferences.getString("role","NaN");
             Toast.makeText(this, " "+restorePrefData(), Toast.LENGTH_SHORT).show();
            if (user_role.equals("admin")){
-//               Intent intent = new Intent(Login.this, Home_admin.class);
-//               intent.putExtra("user",userName);
-//               startActivity(intent);
+               Intent intent = new Intent(Login.this, Home_admin.class);
+               intent.putExtra("user",userName);
+               startActivity(intent);
 //                                //*****************animation when witch activity*********************
                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                finish();
            }else if (user_role.equals("Master")){
-//               Intent intent = new Intent(Login.this, Master_home.class);
-//               intent.putExtra("user",userName);
-//               startActivity(intent);
+               Intent intent = new Intent(Login.this, Home_master.class);
+               intent.putExtra("user",userName);
+               startActivity(intent);
+//                                //*****************animation when witch activity*********************
+               overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+               finish();
+
+           }else if (user_role.equals("User")){
+               Intent intent = new Intent(Login.this, Home_user.class);
+               intent.putExtra("user",userName);
+               startActivity(intent);
 //                                //*****************animation when witch activity*********************
                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                finish();
@@ -212,42 +226,72 @@ public class Login extends AppCompatActivity {
 
 
 
-                mAuth.signInWithEmailAndPassword(user_name, user_pass)
-                        .addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
 
-                                if (task.isSuccessful()) {
+                                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference("User");
+                                    ref.orderByChild("mobile").equalTo(user_name).addListenerForSingleValueEvent(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                            for (DataSnapshot snapshot:dataSnapshot.getChildren()){
+                                                Ragister_Master_Model user1 = snapshot.getValue( Ragister_Master_Model.class);
+                                                roles = user1.getRole();
+                                                upass = user1.getPassword();
+                                                savePrefsData(user1.getName(),user1.getPassword(),user1.getRole());
+                                                Log.d("log userrrr", "onDataChange: "+user1.getRole());
+                                            }
+
+
+
+//
+                                          if (upass.contains(user_pass) &&roles.contains("Admin")){
+                                              FirebaseUser userr = mAuth.getCurrentUser();
+                                              Toast.makeText(Login.this, "SignUp Successful !",
+                                                      Toast.LENGTH_SHORT).show();
+
+                                              Intent intent = new Intent(Login.this, Home_admin.class);
+                                              intent.putExtra("user",userr);
+
+                                              startActivity(intent);
+                                              //*****************animation when witch activity*********************
+                                              overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                                              finish();
+                                          }
+                                          if ( upass.contains(user_pass) &&roles.contains("Master")){
+                                              Toast.makeText(Login.this, "SignUp Successful !",
+                                                      Toast.LENGTH_SHORT).show();
+
+                                              Intent intent = new Intent(Login.this, Home_master.class);
+                                              //intent.putExtra("user",userr);
+
+                                              startActivity(intent);
+                                              //*****************animation when witch activity*********************
+                                              overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                                              finish();
+
+                                          }
+                                          if (upass.contains(user_pass)&& roles.contains("User")){
+
+                                              Toast.makeText(Login.this, "SignUp Successful !",
+                                                      Toast.LENGTH_SHORT).show();
+
+                                              Intent intent = new Intent(Login.this, Home_user.class);
+                                             // intent.putExtra("user",userr);
+
+                                              startActivity(intent);
+                                              //*****************animation when witch activity*********************
+                                              overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                                              finish();
+                                          }
+
+                                        }
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                                            Log.d("login problem", "onCancelled: "+databaseError);
+
+                                        }
+                                    });
                                     // Sign in success, update UI with the signed-in user's information
-                                    Toast.makeText(Login.this, "SignUp Successful !",
-                                            Toast.LENGTH_SHORT).show();
 
-                                    FirebaseUser userr = mAuth.getCurrentUser();
-
-
-                              Intent intent = new Intent(Login.this, Home_admin.class);
-                                intent.putExtra("user",userr);
-
-                              startActivity(intent);
-                               //*****************animation when witch activity*********************
-                             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                              finish();
-
-                                } else {
-                                    // If sign in fails, display a message to the user.
-
-//                                    Toast.makeText(Login.this, "Authentication failed.",
-//                                            Toast.LENGTH_SHORT).show();
-
-                                    Toast.makeText(Login.this, "Authentication failed."+task.getException().toString(),
-                                            Toast.LENGTH_SHORT).show();
-                                    Log.d("login", "onComplete: "+task.getException().toString());
-
-                                }
-
-                                // ...
-                            }
-                        });
 
 
 
@@ -295,14 +339,14 @@ public class Login extends AppCompatActivity {
         return isIntroOpenedBefore;
     }
 
-    private void savePrefsData(String username,String password,String role, String fullname) {
+    private void savePrefsData(String username,String pass,String role) {
         SharedPreferences pref = getApplicationContext().getSharedPreferences("loginDetails",MODE_PRIVATE);
         SharedPreferences.Editor editor= pref.edit();
         editor.putBoolean("isLogin",true);
         editor.putString("username",username);
-        editor.putString("fullname",fullname);
-        editor.putString("password",password);
+        editor.putString("password",pass);
         editor.putString("role",role);
+
         editor.commit();
     }
 }

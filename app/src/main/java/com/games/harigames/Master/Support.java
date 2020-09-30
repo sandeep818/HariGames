@@ -1,6 +1,7 @@
 package com.games.harigames.Master;
 
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,6 +24,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+
+import static android.content.Context.MODE_PRIVATE;
 
 
 /**
@@ -109,15 +112,18 @@ public class Support extends Fragment {
 //////////////////////////////////////////////////////////////////////////////////////
 
 public ArrayList<UserAllDataModel> getit (final ProgressBar progressBar){
+    SharedPreferences preferences = getContext().getSharedPreferences("loginDetails",MODE_PRIVATE);
+   String username= preferences.getString("username","user");
     progressBar.setIndeterminate(true);
     progressBar.setVisibility(View.VISIBLE);
     final ArrayList<UserAllDataModel> downloadData=new ArrayList<>();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("User");
-        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+        ref.orderByChild("role").equalTo("User").addListenerForSingleValueEvent(new ValueEventListener() {
                                                @Override
                                                public void onDataChange(DataSnapshot dataSnapshot) {
                                                    ArrayList<UserAllDataModel> userAllDataModels = new ArrayList<UserAllDataModel>();
                                                    for (DataSnapshot userSnapshot: dataSnapshot.getChildren()) {
+
                                                        UserAllDataModel allDataModel = userSnapshot.getValue(UserAllDataModel.class);
                                                        userAllDataModels.add(allDataModel);
                                                        downloadData.add(allDataModel);

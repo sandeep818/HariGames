@@ -9,7 +9,7 @@
           android:icon="@drawable/home"/>
 
       <item
-          android:id="@+id/bank"
+          android:id="@+id/play_earn"
           android:title="Bank"
           android:icon="@drawable/market"/>
       <item
@@ -18,7 +18,7 @@
           android:title="Create User"
           android:icon="@drawable/ic_adduser"/>
   </group>
-    <item android:title="Market">
+    <item android:title="Market" android:id="@+id/marketid">
         <menu>
             <item android:id="@+id/add_marketbtn"
                 android:title="Add Market"

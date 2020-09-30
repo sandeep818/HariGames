@@ -1,8 +1,6 @@
-package com.games.harigames.admin;
+package com.games.harigames.User;
 
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,10 +10,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
-
 
 import com.games.harigames.R;
 import com.games.harigames.getAllUser.UserAllDataModel;
@@ -26,9 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-
 import java.util.ArrayList;
-
 
 
 /**
@@ -124,13 +118,9 @@ public ArrayList<UserAllDataModel> getit (final ProgressBar progressBar){
                                                public void onDataChange(DataSnapshot dataSnapshot) {
                                                    ArrayList<UserAllDataModel> userAllDataModels = new ArrayList<UserAllDataModel>();
                                                    for (DataSnapshot userSnapshot: dataSnapshot.getChildren()) {
-
                                                        UserAllDataModel allDataModel = userSnapshot.getValue(UserAllDataModel.class);
-                                                       if (allDataModel.getRole().contains("Master")){
-                                                           userAllDataModels.add(allDataModel);
-                                                           downloadData.add(allDataModel);
-                                                       }
-
+                                                       userAllDataModels.add(allDataModel);
+                                                       downloadData.add(allDataModel);
                                                        Log.d("allu", "onDataChange: "+downloadData.toString());
 
                                                    }
@@ -213,18 +203,18 @@ public ArrayList<UserAllDataModel> getit (final ProgressBar progressBar){
                // Snackbar.make(view, dataModel.getName()+"\n"+" API: "+dataModel.getStatus(), Snackbar.LENGTH_LONG)
                //         .setAction("No action", null).show();
 
-               Intent intent = new Intent(getContext(),Master_details.class);
+//                Intent intent = new Intent(getApplicationContext(),UserAction.class);
 //                intent.putExtra("id",dataModel.getId());
-                intent.putExtra("name",dataModel.getName());
-                intent.putExtra("role",dataModel.getRole());
-               intent.putExtra("email",dataModel.getUserName());
-                intent.putExtra("status",dataModel.getStatus());
-                intent.putExtra("credit",dataModel.getCredit());
-                intent.putExtra("mobile",dataModel.getMobile());
+//                intent.putExtra("name",dataModel.getName());
+//                intent.putExtra("role",dataModel.getRole());
+//                intent.putExtra("email",dataModel.getEmail());
+//                intent.putExtra("status",dataModel.getStatus());
+//                intent.putExtra("credit",dataModel.getCredit());
+//                intent.putExtra("balance",dataModel.getBalance());
 //                intent.putExtra("username",dataModel.getUsername());
-                startActivity(intent);
-                     //*****************animation when switch activity*********************
-         //     getActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+//                startActivity(intent);
+                     //*****************animation when witch activity*********************
+            //    getApplicationContext().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 
             }
         });

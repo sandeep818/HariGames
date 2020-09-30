@@ -2,6 +2,15 @@ package com.games.harigames.market;
 
 public class Market_model {
     public String market_name,status,id_n,start_time,end_time;
+    public Market_model(){
+
+    }
+
+    public Market_model(String market_name, String start_time, String end_time) {
+        this.market_name = market_name;
+        this.start_time = start_time;
+        this.end_time = end_time;
+    }
 
     public Market_model(String market_name, String status, String id_n, String start_time, String end_time) {
         this.market_name = market_name;
