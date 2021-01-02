@@ -5,4 +5,10 @@
     <string name="navigaation_drawer_close">Close navigation drawer</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="select_font_size">
+        <item>Single</item>
+        <item>Jodi</item>
+        <item>Sangam</item>
+        <item>Single Patti</item>
+    </string-array>
 </resources>

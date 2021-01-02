@@ -17,7 +17,13 @@
         android:roundIcon="@drawable/roundlogo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".User.Jodi_bet_Activity"></activity>
+        <activity android:name=".admin.Bet_result"></activity>
+        <activity android:name=".admin.Market_report" />
+        <activity android:name=".User.Triple_patti_bet" />
+        <activity android:name=".User.Double_patti_bet" />
+        <activity android:name=".User.Single_patti" />
+        <activity android:name=".User.Sangam_bet_placed" />
+        <activity android:name=".User.Jodi_bet_Activity" />
         <activity android:name=".User.Single_digitBet" />
         <activity android:name=".User.Bet_optionActivity" />
         <activity android:name=".Master.View_market" />

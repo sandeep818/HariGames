@@ -46,6 +46,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/user_Name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -110,6 +111,7 @@
                                         android:orientation="vertical">
 
                                         <TextView
+                                            android:id="@+id/placed_bet_num"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
@@ -143,6 +145,7 @@
                                         android:orientation="vertical">
 
                                         <TextView
+                                            android:id="@+id/placed_bet_amount"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
@@ -214,7 +217,7 @@
 
 
                                 <TextView
-                                    android:id="@+id/lbetplaced"
+                                    android:id="@+id/total_betplaced"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_below="@+id/marketTxt2"
@@ -228,7 +231,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_below="@+id/lbetplaced"
+                                    android:layout_below="@+id/total_betplaced"
                                     android:layout_centerHorizontal="true"
                                     android:layout_gravity="center"
                                     android:layout_marginTop="5dp"
@@ -269,7 +272,7 @@
 
 
                                 <TextView
-                                    android:id="@+id/lbetamount"
+                                    android:id="@+id/total_betamount"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_below="@+id/marketTxt3"
@@ -283,7 +286,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_below="@+id/lbetamount"
+                                    android:layout_below="@+id/total_betamount"
                                     android:layout_centerHorizontal="true"
                                     android:layout_gravity="center"
                                     android:layout_marginTop="5dp"
@@ -325,14 +328,14 @@
                                     android:gravity="center"
                                     android:paddingTop="10dp"
                                     android:paddingBottom="10dp"
-                                    android:text="PROFIT"
+                                    android:text="BALANCE"
                                     android:textColor="#fff"
                                     android:textSize="15sp"
                                     android:textStyle="bold" />
 
 
                                 <TextView
-                                    android:id="@+id/lprofit"
+                                    android:id="@+id/balance"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_below="@+id/marketTxt4"
@@ -346,7 +349,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_below="@+id/lprofit"
+                                    android:layout_below="@+id/balance"
                                     android:layout_centerHorizontal="true"
                                     android:layout_gravity="center"
                                     android:layout_marginTop="5dp"
@@ -380,14 +383,14 @@
                                     android:gravity="center"
                                     android:paddingTop="10dp"
                                     android:paddingBottom="10dp"
-                                    android:text="MARKET"
+                                    android:text="Cr. BALANCE"
                                     android:textColor="#fff"
                                     android:textSize="15sp"
                                     android:textStyle="bold" />
 
 
                                 <TextView
-                                    android:id="@+id/tmarket"
+                                    android:id="@+id/cr_balance"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_below="@+id/marketTxt5"
@@ -401,7 +404,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_below="@+id/tmarket"
+                                    android:layout_below="@+id/cr_balance"
                                     android:layout_centerHorizontal="true"
                                     android:layout_gravity="center"
                                     android:layout_marginTop="5dp"

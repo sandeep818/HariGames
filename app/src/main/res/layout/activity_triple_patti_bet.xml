@@ -28,6 +28,7 @@
                     android:background="#FFC107">
 
                     <TextView
+                        android:id="@+id/market_n"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
@@ -44,7 +45,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
                         android:fontFamily="sans-serif-smallcaps"
-                        android:text="Single Digit"
+                        android:text="Sangam"
                         android:textColor="#fff"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -83,27 +84,45 @@
                         android:background="#fff"
                         android:padding="5dp">
 
-                        <RadioButton
-                            android:id="@+id/single_open0"
-                            android:layout_width="0dp"
+                        <TextView
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:text="Open 10:15 AM"
-                            android:textColor="#000"
-                            android:textSize="18sp" />
-
-                        <RadioButton
-                            android:id="@+id/single_close"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:text="Close 12:15 PM"
-                            android:textColor="#000"
-                            android:textSize="18sp" />
+                            android:text="Time :"
+                            android:textSize="20dp"
+                            android:textFontWeight="700"/>
                     </RadioGroup>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="65dp"
+                        android:orientation="horizontal"
+                       android:layout_marginTop="10dp"
+                        android:padding="0dp">
+
+                        <TextView
+
+                            android:layout_width="7dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="40"
+                            android:background="@drawable/left_rounded_fill"
+                            android:gravity="center"
+                            android:text="111"
+                            android:textColor="#fff"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:tag="111"
+                            android:id="@+id/tripal_patti_1"
+                            android:layout_width="0dp"
+                            android:layout_weight="60"
+                            android:layout_height="match_parent"
+                            android:layout_centerHorizontal="true"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:background="@drawable/right_rounded_fill_white"/>
+
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -115,30 +134,32 @@
                             android:layout_width="0dp"
                             android:layout_weight="45"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="25dp"
+
                             android:orientation="vertical">
 
+
+
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="65dp"
                                 android:orientation="horizontal"
+                                android:layout_marginTop="20dp"
                                 android:padding="0dp">
 
                                 <TextView
-
-                                    android:layout_width="0dp"
-                                    android:layout_weight="40"
+                                    android:layout_width="7dp"
                                     android:layout_height="match_parent"
+                                    android:layout_weight="40"
                                     android:background="@drawable/left_rounded_fill"
                                     android:gravity="center"
-                                    android:text="0"
+                                    android:text="222"
                                     android:textColor="#fff"
-                                    android:textSize="35sp"
+                                    android:textSize="18sp"
                                     android:textStyle="bold" />
 
                                 <EditText
-                                    android:tag="0"
-                                    android:id="@+id/single_zero"
+                                    android:tag="222"
+                                    android:id="@+id/tripal_patti_2"
                                     android:layout_width="0dp"
                                     android:layout_weight="60"
                                     android:layout_height="match_parent"
@@ -157,19 +178,19 @@
                                 android:padding="0dp">
 
                                 <TextView
-                                    android:layout_width="0dp"
+                                    android:layout_width="7dp"
                                     android:layout_weight="40"
                                     android:layout_height="match_parent"
                                     android:background="@drawable/left_rounded_fill"
                                     android:gravity="center"
-                                    android:text="2"
+                                    android:text="444"
                                     android:textColor="#fff"
-                                    android:textSize="35sp"
+                                    android:textSize="18sp"
                                     android:textStyle="bold" />
 
                                 <EditText
-                                    android:tag="2"
-                                    android:id="@+id/single_two"
+                                    android:tag="444"
+                                    android:id="@+id/tripal_patti_4"
                                     android:layout_width="0dp"
                                     android:layout_weight="60"
                                     android:layout_height="match_parent"
@@ -188,19 +209,19 @@
                                 android:padding="0dp">
 
                                 <TextView
-                                    android:layout_width="0dp"
+                                    android:layout_width="7dp"
                                     android:layout_weight="40"
                                     android:layout_height="match_parent"
                                     android:background="@drawable/left_rounded_fill"
                                     android:gravity="center"
-                                    android:text="4"
+                                    android:text="666"
                                     android:textColor="#fff"
-                                    android:textSize="35sp"
+                                    android:textSize="18sp"
                                     android:textStyle="bold" />
 
                                 <EditText
-                                    android:tag="4"
-                                    android:id="@+id/single_four"
+                                    android:tag="666"
+                                    android:id="@+id/tripal_patti_6"
                                     android:layout_width="0dp"
                                     android:layout_weight="60"
                                     android:layout_height="match_parent"
@@ -219,50 +240,19 @@
                                 android:padding="0dp">
 
                                 <TextView
-                                    android:layout_width="0dp"
+                                    android:layout_width="7dp"
                                     android:layout_weight="40"
                                     android:layout_height="match_parent"
                                     android:background="@drawable/left_rounded_fill"
                                     android:gravity="center"
-                                    android:text="6"
+                                    android:text="888"
                                     android:textColor="#fff"
-                                    android:textSize="35sp"
+                                    android:textSize="18sp"
                                     android:textStyle="bold" />
 
                                 <EditText
-                                    android:tag="6"
-                                    android:id="@+id/single_six"
-                                    android:layout_width="0dp"
-                                    android:layout_weight="60"
-                                    android:layout_height="match_parent"
-                                    android:layout_centerHorizontal="true"
-                                    android:ems="10"
-                                    android:inputType="number"
-                                    android:background="@drawable/right_rounded_fill_white"/>
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="65dp"
-                                android:orientation="horizontal"
-                                android:layout_marginTop="20dp"
-                                android:padding="0dp">
-
-                                <TextView
-                                    android:layout_width="0dp"
-                                    android:layout_weight="40"
-                                    android:layout_height="match_parent"
-                                    android:background="@drawable/left_rounded_fill"
-                                    android:gravity="center"
-                                    android:text="8"
-                                    android:textColor="#fff"
-                                    android:textSize="35sp"
-                                    android:textStyle="bold" />
-
-                                <EditText
-                                    android:tag="8"
-                                    android:id="@+id/single_eight"
+                                    android:tag="888"
+                                    android:id="@+id/tripal_patti_8"
                                     android:layout_width="0dp"
                                     android:layout_weight="60"
                                     android:layout_height="match_parent"
@@ -285,29 +275,31 @@
                             android:layout_width="0dp"
                             android:layout_weight="45"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="25dp"
+
                             android:orientation="vertical">
 
+
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="65dp"
                                 android:orientation="horizontal"
+                                android:layout_marginTop="20dp"
                                 android:padding="0dp">
 
                                 <TextView
-                                    android:layout_width="0dp"
+                                    android:layout_width="7dp"
                                     android:layout_weight="40"
                                     android:layout_height="match_parent"
                                     android:background="@drawable/left_rounded_fill"
                                     android:gravity="center"
-                                    android:text="1"
+                                    android:text="333"
                                     android:textColor="#fff"
-                                    android:textSize="35sp"
+                                    android:textSize="18sp"
                                     android:textStyle="bold" />
 
                                 <EditText
-                                    android:tag="1"
-                                    android:id="@+id/single_one"
+                                    android:tag="333"
+                                    android:id="@+id/tripal_patti_3"
                                     android:layout_width="0dp"
                                     android:layout_weight="60"
                                     android:layout_height="match_parent"
@@ -326,19 +318,19 @@
                                 android:padding="0dp">
 
                                 <TextView
-                                    android:layout_width="0dp"
+                                    android:layout_width="7dp"
                                     android:layout_weight="40"
                                     android:layout_height="match_parent"
                                     android:background="@drawable/left_rounded_fill"
                                     android:gravity="center"
-                                    android:text="3"
+                                    android:text="555"
                                     android:textColor="#fff"
-                                    android:textSize="35sp"
+                                    android:textSize="18sp"
                                     android:textStyle="bold" />
 
                                 <EditText
-                                    android:tag="3"
-                                    android:id="@+id/single_three"
+                                    android:tag="555"
+                                    android:id="@+id/tripal_patti_5"
                                     android:layout_width="0dp"
                                     android:layout_weight="60"
                                     android:layout_height="match_parent"
@@ -357,19 +349,19 @@
                                 android:padding="0dp">
 
                                 <TextView
-                                    android:layout_width="0dp"
+                                    android:layout_width="7dp"
                                     android:layout_weight="40"
                                     android:layout_height="match_parent"
                                     android:background="@drawable/left_rounded_fill"
                                     android:gravity="center"
-                                    android:text="5"
+                                    android:text="777"
                                     android:textColor="#fff"
-                                    android:textSize="35sp"
+                                    android:textSize="18sp"
                                     android:textStyle="bold" />
 
                                 <EditText
-                                    android:tag="5"
-                                    android:id="@+id/single_five"
+                                    android:tag="777"
+                                    android:id="@+id/tripal_patti_7"
                                     android:layout_width="0dp"
                                     android:layout_weight="60"
                                     android:layout_height="match_parent"
@@ -388,50 +380,19 @@
                                 android:padding="0dp">
 
                                 <TextView
-                                    android:layout_width="0dp"
+                                    android:layout_width="7dp"
                                     android:layout_weight="40"
                                     android:layout_height="match_parent"
                                     android:background="@drawable/left_rounded_fill"
                                     android:gravity="center"
-                                    android:text="7"
+                                    android:text="999"
                                     android:textColor="#fff"
-                                    android:textSize="35sp"
+                                    android:textSize="18sp"
                                     android:textStyle="bold" />
 
                                 <EditText
-                                    android:tag="7"
-                                    android:id="@+id/single_seven"
-                                    android:layout_width="0dp"
-                                    android:layout_weight="60"
-                                    android:layout_height="match_parent"
-                                    android:layout_centerHorizontal="true"
-                                    android:ems="10"
-                                    android:inputType="number"
-                                    android:background="@drawable/right_rounded_fill_white"/>
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="65dp"
-                                android:orientation="horizontal"
-                                android:layout_marginTop="20dp"
-                                android:padding="0dp">
-
-                                <TextView
-                                    android:layout_width="0dp"
-                                    android:layout_weight="40"
-                                    android:layout_height="match_parent"
-                                    android:background="@drawable/left_rounded_fill"
-                                    android:gravity="center"
-                                    android:text="9"
-                                    android:textColor="#fff"
-                                    android:textSize="35sp"
-                                    android:textStyle="bold" />
-
-                                <EditText
-                                    android:tag="9"
-                                    android:id="@+id/single_nine"
+                                    android:tag="999"
+                                    android:id="@+id/tripal_patti_9"
                                     android:layout_width="0dp"
                                     android:layout_weight="60"
                                     android:layout_height="match_parent"
@@ -465,7 +426,7 @@
                             android:textStyle="bold" />
 
                         <EditText
-                            android:id="@+id/single_total"
+                            android:id="@+id/sangam_tripal_patti"
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:layout_height="match_parent"
@@ -487,7 +448,7 @@
 
 
                         <Button
-                            android:id="@+id/placebet_single"
+                            android:id="@+id/placebet_tripal_patti"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -497,7 +458,7 @@
                             android:textSize="18sp" />
 
                         <Button
-                            android:id="@+id/reset_single"
+                            android:id="@+id/reset_tripal_patti"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_weight="1"

@@ -27,6 +27,7 @@ import android.provider.Settings;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -42,6 +43,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.games.harigames.Login_Ragister.Validation;
 import com.games.harigames.MainActivity;
 import com.games.harigames.Place_bet.Plece_bet;
 import com.games.harigames.R;
@@ -60,6 +62,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -76,6 +79,8 @@ public class Single_digitBet extends AppCompatActivity implements View.OnFocusCh
     RadioGroup radioGroup;
     TextView date_Time;
     String time;
+    RadioButton radioButton;
+    String type;
 
 
     String date1;
@@ -86,31 +91,34 @@ public class Single_digitBet extends AppCompatActivity implements View.OnFocusCh
     int answer;
     private static final int MY_PERMISSION_ACCESS_COARSE_LOCATION = 11;
     long times;
-    @RequiresApi(api = Build.VERSION_CODES.P)
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_digit_bet);
-        String opent=getIntent().getStringExtra("open");
-        String closet=getIntent().getStringExtra("close");
+        final String opent=getIntent().getStringExtra("open");
+        final String closet=getIntent().getStringExtra("close");
         final String marketN=getIntent().getStringExtra("market");
         date_Time = (TextView)findViewById(R.id.date_Time);
 
       //  setSettingsAutomaticDateTimeIfNeeded();
-if (isTimeAutomatic(getApplicationContext())){
-    Toast.makeText(this, " wowowowowowowo", Toast.LENGTH_SHORT).show();
-   try {
-       if (Settings.Global.getInt(getContentResolver(),Settings.Global.AUTO_TIME_ZONE)==1){
-           Toast.makeText(this, " 1111111111111111", Toast.LENGTH_SHORT).show();
-       }
-   }catch (Exception e){
-
-   }
-
-}else {
-    startActivityForResult(new Intent(Settings.ACTION_DATE_SETTINGS),0);
-    return;
-}
+//if (isTimeAutomatic(getApplicationContext())){
+//
+//   try {
+//       if (Settings.Global.getInt(getContentResolver(),Settings.Global.AUTO_TIME_ZONE)!=1){
+//           startActivityForResult(new Intent(Settings.ACTION_DATE_SETTINGS),0);
+//           Toast.makeText(getApplication().getApplicationContext(), " Otherwise unable to place bet", Toast.LENGTH_LONG).show();
+//       }
+//   }catch (Exception e){
+//
+//   }
+//
+//}else {
+//    Toast.makeText(getApplication().getBaseContext(), "Please select Automatic date and time", Toast.LENGTH_LONG).show();
+//    startActivityForResult(new Intent(Settings.ACTION_DATE_SETTINGS),0);
+////    Toast.makeText(this, " Otherwise unable to place bet", Toast.LENGTH_SHORT).show();
+//    return;
+//}
 
 
 //        if ( ContextCompat.checkSelfPermission( this, android.Manifest.permission.ACCESS_COARSE_LOCATION ) != PackageManager.PERMISSION_GRANTED ) {
@@ -119,43 +127,44 @@ if (isTimeAutomatic(getApplicationContext())){
 //            LocationManager locMan = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 //            time = locMan.getLastKnownLocation(LocationManager.NETWORK_PROVIDER).getTime();
 //        }
-
-        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) ==
-                PackageManager.PERMISSION_GRANTED &&
-                ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) ==
-                        PackageManager.PERMISSION_GRANTED) {
-
-
-            // Permission already Granted
-            //Do your work here
-           LocationManager locMan = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-//           final long time = locMan.getLastKnownLocation(LocationManager.NETWORK_PROVIDER).getTime();
-//            location = locMan
-//                    .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
 //
-//            geocoder= new Geocoder(this);
-//            times =location.getTime();
-//            Date resultdate = new Date(times);
-//            SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy");
+//        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) ==
+//                PackageManager.PERMISSION_GRANTED &&
+//                ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) ==
+//                        PackageManager.PERMISSION_GRANTED) {
 //
-//            date1 = sdf.format(resultdate);
-//            Date date = new Date(times);
-//            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm:ss");
 //
-//            time = simpleDateFormat.format(date);
-//            date_Time.setText(date1 +" " +time);
+//            // Permission already Granted
+//            //Do your work here
+//           LocationManager locMan = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+////           final long time = locMan.getLastKnownLocation(LocationManager.NETWORK_PROVIDER).getTime();
+////            location = locMan
+////                    .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+////
+////            geocoder= new Geocoder(this);
+////            times =location.getTime();
+////            Date resultdate = new Date(times);
+////            SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy");
+////
+////            date1 = sdf.format(resultdate);
+////            Date date = new Date(times);
+////            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm:ss");
+////
+////            time = simpleDateFormat.format(date);
+////            date_Time.setText(date1 +" " +time);
+//
+////            times =System.currentTimeMillis();
+////            SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
+////            Date resultdate = new Date(times);
+////            String date1 = sdf.format(resultdate);
+////            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm:ss");
+////            Date date = new Date(times);
+////            String time = simpleDateFormat.format(date);
+//            //Perform operations here only which requires permission
+//        } else {
+//            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
+//        }
 
-//            times =System.currentTimeMillis();
-//            SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
-//            Date resultdate = new Date(times);
-//            String date1 = sdf.format(resultdate);
-//            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm:ss");
-//            Date date = new Date(times);
-//            String time = simpleDateFormat.format(date);
-            //Perform operations here only which requires permission
-        } else {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
-        }
 
 
 
@@ -165,17 +174,16 @@ if (isTimeAutomatic(getApplicationContext())){
 
 
 
-
-        LocationManager locationManager = (LocationManager) this.getSystemService(LOCATION_SERVICE);
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 101);
-       }
-
-
-        location = locationManager
-                .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-
-        geocoder= new Geocoder(this);
+//        LocationManager locationManager = (LocationManager) this.getSystemService(LOCATION_SERVICE);
+//        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+//            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 101);
+//       }
+//
+//
+//        location = locationManager
+//                .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+//
+//        geocoder= new Geocoder(this);
 
 
 
@@ -195,12 +203,13 @@ if (isTimeAutomatic(getApplicationContext())){
         offsetRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                double offset = snapshot.getValue(Double.class);
-                double estimatedServerTimeMs = System.currentTimeMillis() + offset;
-                Date date = new Date(times);
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm:ss");
+                long offset = snapshot.getValue(Long.class);
+                long estimatedServerTimeMs = System.currentTimeMillis() + offset;
+                SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
+                Date resultdate = new Date(estimatedServerTimeMs);
+                Log.d("Tag11","date from firebase  "+sdf.format(resultdate).toString());
 
-               // time = simpleDateFormat.format(date);
+
             }
 
             @Override
@@ -227,7 +236,7 @@ if (isTimeAutomatic(getApplicationContext())){
         single_seven =(EditText)findViewById(R.id.single_seven);
         single_eight =(EditText)findViewById(R.id.single_eight);
         single_nine =(EditText)findViewById(R.id.single_nine);
-        single_open =(RadioButton) findViewById(R.id.single_open);
+        single_open =(RadioButton) findViewById(R.id.single_open0);
         single_close =(RadioButton) findViewById(R.id.single_close);
         placebet_single =(Button) findViewById(R.id.placebet_single);
         reset_single =(Button) findViewById(R.id.reset_single);
@@ -262,11 +271,72 @@ if (isTimeAutomatic(getApplicationContext())){
         single_nine.addTextChangedListener(textWatcher);
 
 
+      reset_single.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
 
+          }
+      });
+      radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+          @Override
+          public void onCheckedChanged(RadioGroup group, int checkedId) {
+              switch (checkedId){
+                  case R.id.single_open0:
+                      type= "Open";
+                      break;
+                  case R.id.single_close:
+                      type="Close";
+                      break;
+                  default:type="";
+              }
+          }
+      });
 
         placebet_single.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                Validation validation =new Validation();
+
+                if (validation.isTimeAutomatic(getApplicationContext())){
+
+                    try {
+                        if (Settings.Global.getInt(getContentResolver(),Settings.Global.AUTO_TIME_ZONE)!=1){
+
+                     //       validation.showDialog(this,"please select device date and time to Automatic","Date&Time",new Intent(Settings.ACTION_DATE_SETTINGS),false);
+//                    startActivityForResult(new Intent(Settings.ACTION_DATE_SETTINGS),0);
+                            Toast.makeText(getApplication().getApplicationContext(), " Select Automatic date Otherwise unable to place bet",
+                                    Toast.LENGTH_LONG).show();
+
+                            Intent intent = new Intent(Single_digitBet.this,Home_user.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    }catch (Exception e){
+
+                    }
+
+                }else {
+
+                   // validation.showDialog(this,"please select device date and time to Automatic","Date&Time",new Intent(Settings.ACTION_DATE_SETTINGS),false);
+                    Toast.makeText(getApplication().getBaseContext(), "Please select Automatic date and time", Toast.LENGTH_LONG).show();
+                    // startActivityForResult(new Intent(Settings.ACTION_DATE_SETTINGS),0);
+//    Toast.makeText(this, " Otherwise unable to place bet", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Single_digitBet.this,Home_user.class);
+                    startActivity(intent);
+                    finish();
+
+                }
+
+
+           if (TextUtils.isEmpty(single_total.getText())){
+               Toast.makeText(Single_digitBet.this, "At least Select One Number And Amount ", Toast.LENGTH_SHORT).show();
+           }
+
+
+
+
                 HashMap<Integer,String> numbers= new HashMap<Integer, String>();
                 ArrayList<String> values = new ArrayList<String>();
                 int[] ids = new int[]{R.id.single_zero,R.id.single_one,R.id.single_two,R.id.single_three,R.id.single_four,R.id.single_five,
@@ -282,11 +352,12 @@ if (isTimeAutomatic(getApplicationContext())){
 
 
                 int button= radioGroup.getCheckedRadioButtonId();
-                String type;
-                if (button == R.id.single_open){
-                    type="Open";
+
+                if (button ==R.id.single_open0 || button ==R.id.single_close){
+
                 }else {
-                    type="Close";
+                    Toast.makeText(Single_digitBet.this, "Please Select Bet Type", Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 SharedPreferences preferences = getApplicationContext().getSharedPreferences("loginDetails",MODE_PRIVATE);
                 String userName= preferences.getString("username","user");
@@ -296,9 +367,28 @@ if (isTimeAutomatic(getApplicationContext())){
                         int k = entry.getKey();
                         String val = entry.getValue();
                         Log.d("array", "onClick:  key"+ k +" value - " +val +" time" + times + " type -" +type);
+                        Map map = new HashMap();
+                        map.put("timestamp", ServerValue.TIMESTAMP);
 
+//                        String s = String.valueOf(map.get("timestamp"));
+//                        String ss = type;
+//                        long t =Long.parseLong(s);
+//                       Date date=new Date(t);
+//        SimpleDateFormat sfd = new SimpleDateFormat("MM/dd/yyyy");
+//
+//        sfd.setTimeZone(TimeZone.getTimeZone("Asia/Kolkata"));
+//        String time= sfd.format(date);
+                        long currentDate = Calendar.getInstance().getTimeInMillis();
+                        Date date=new Date(currentDate);
+                        SimpleDateFormat sfd = new SimpleDateFormat("MM/dd/yyyy");
+                        sfd.setTimeZone(TimeZone.getTimeZone("Asia/Kolkata"));
+                        String new_date=sfd.format(date);
 
-                        Plece_bet plece_bet=new Plece_bet(times,String.valueOf(k),type,marketN,"we",userName,"12-12-12",String.valueOf(val),"pending",false);
+                        SimpleDateFormat sdf = new SimpleDateFormat("HH:mms");
+                        Date resultdate = new Date(currentDate);
+                        String new_time = sdf.format(resultdate);
+
+                        Plece_bet plece_bet=new Plece_bet(""+new_time,""+String.valueOf(k),type,marketN,"Single",userName,new_date,String.valueOf(val),"pending",false,opent,closet);
                         FirebaseDatabase.getInstance().getReference("Place_bet").push().setValue(plece_bet).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
@@ -327,52 +417,6 @@ if (isTimeAutomatic(getApplicationContext())){
 
 
 
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        switch (requestCode) {
-            case 101:
-                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                        return;
-                    }
-                    //  textView.setText("" + location.getTime());
-                    Log.d("time", "onRequestPermissionsResult: "+location.getTime());
-
-                    times =location.getTime();
-                    Date resultdate = new Date(times);
-                    SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy");
-
-                    date1 = sdf.format(resultdate);
-                    Date date = new Date(times);
-                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm:ss");
-
-                     time = simpleDateFormat.format(date);
-
-                    date_Time.setText(date1 +" " +time);
-                    Log.d("timey", "onRequestPermissionsResult: "+date1.toString());
-                    Log.d("time", "onRequestPermissionsResult: "+time);
-                } else {
-                    //not granted
-                }
-                break;
-            default:
-                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            return;
-        }
-       date_Time.setText(date1 +" " +time);
-        // textView.setText("" + location.getTime());
-  //      Toast.makeText(this, ""+ location.getTime(), Toast.LENGTH_SHORT).show();
-    }
 
     public static boolean isTimeAutomatic(Context c) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {

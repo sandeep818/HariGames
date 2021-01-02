@@ -8,10 +8,9 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="0dp">
+        android:layout_alignParentLeft="true"
+        android:background="#303F9F">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,53 +20,47 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-
-                android:background="#DB4D8BF2">
+                android:background="#C5CAE9">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="230dp"
-                    android:background="#0D47A1"
+                    android:layout_height="160dp"
+                    android:orientation="vertical"
                     android:gravity="center"
-                    android:orientation="vertical">
+                    android:background="#FFC107">
 
                     <ImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:layout_gravity="center"
-                        android:background="#fff"
-
-                        android:src="@drawable/market" />
+                        android:src="@drawable/market"
+                        android:layout_gravity="center"/>
 
                     <TextView
                         android:id="@+id/name_market"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="10dp"
                         android:text="MARKET NAME"
                         android:textColor="#fff"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"
                         android:textSize="20sp"
-                        android:textStyle="bold" />
+                        android:layout_marginTop="10dp"/>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="215dp"
-
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="0dp"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="150dp"
+                    android:background="@drawable/rounded_border_dark">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="135dp"
+                        android:orientation="horizontal"
                         android:layout_marginBottom="10dp"
-                        android:orientation="horizontal">
+                        android:layout_marginTop="10dp">
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="0dp"
@@ -85,14 +78,14 @@
                                     android:id="@+id/marketTxt1"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:background="@color/colorAccent"
+                                    android:text="TODAY"
                                     android:gravity="center"
+                                    android:background="@drawable/rounded_border"
                                     android:paddingTop="10dp"
                                     android:paddingBottom="10dp"
-                                    android:text="TODAY"
-                                    android:textColor="#fff"
+                                    android:textStyle="bold"
                                     android:textSize="15sp"
-                                    android:textStyle="bold" />
+                                    android:textColor="#fff"/>
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -103,26 +96,26 @@
                                     <LinearLayout
                                         android:layout_width="0dp"
                                         android:layout_height="wrap_content"
+                                        android:orientation="vertical"
                                         android:layout_weight="1"
-                                        android:orientation="vertical">
-
+                                        >
                                         <TextView
+                                            android:id="@+id/today_bet"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_gravity="center"
-                                            android:layout_marginTop="15dp"
                                             android:text="15"
-                                            android:textSize="35sp"
-                                            android:textStyle="bold" />
-
+                                            android:layout_marginTop="15dp"
+                                            android:textStyle="bold"
+                                            android:textSize="30sp"
+                                            android:layout_gravity="center"/>
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_gravity="center"
-                                            android:layout_marginTop="5dp"
                                             android:text="Bet Placed"
+                                            android:layout_marginTop="5dp"
+                                            android:textStyle="bold"
                                             android:textSize="15sp"
-                                            android:textStyle="bold" />
+                                            android:layout_gravity="center"/>
 
                                     </LinearLayout>
 
@@ -130,35 +123,38 @@
                                         android:layout_width="5dp"
                                         android:layout_height="70dp"
                                         android:layout_gravity="center_vertical"
-                                        android:background="@color/colorAccent" />
+                                        android:background="#303F9F"/>
 
                                     <LinearLayout
                                         android:layout_width="0dp"
                                         android:layout_height="wrap_content"
+                                        android:orientation="vertical"
                                         android:layout_weight="1"
-                                        android:orientation="vertical">
-
+                                        >
                                         <TextView
+                                            android:id="@+id/today_bet_amount"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_gravity="center"
+                                            android:text="2589"
                                             android:layout_marginTop="15dp"
-                                            android:text="Rs. 2589"
-                                            android:textSize="35sp"
-                                            android:textStyle="bold" />
-
+                                            android:textStyle="bold"
+                                            android:textSize="30sp"
+                                            android:layout_gravity="center"/>
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_gravity="center"
-                                            android:layout_marginTop="5dp"
                                             android:text="Bet Amount"
+                                            android:layout_marginTop="5dp"
+                                            android:textStyle="bold"
                                             android:textSize="15sp"
-                                            android:textStyle="bold" />
+                                            android:layout_gravity="center"/>
 
                                     </LinearLayout>
 
                                 </LinearLayout>
+
+
+
 
 
                             </RelativeLayout>
@@ -168,33 +164,83 @@
 
                     </LinearLayout>
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:paddingLeft="10dp"
-                        android:paddingTop="10dp"
+                        android:layout_height="65dp"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/rounded_fill_yellow"
+                        android:orientation="vertical"
+                        android:padding="0dp">
 
-                        android:paddingBottom="10dp"
-                        android:text="OVERALL DETAILS:"
-                        android:textColor="#000000"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:text="EDIT"
+                                android:textStyle="bold"
+                                android:textSize="17sp"
+                                android:textColor="#fff"/>
+
+                            <View
+                                android:layout_width="2dp"
+                                android:layout_height="match_parent"
+                                android:background="#3F51B5"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:text="RESULT"
+                                android:textStyle="bold"
+                                android:textSize="17sp"
+                                android:textColor="#fff"/>
+
+                            <View
+                                android:layout_width="2dp"
+                                android:layout_height="match_parent"
+                                android:background="#3F51B5"/>
+
+                            <TextView
+                                android:id="@+id/market_report"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:text="REPORT"
+                                android:textStyle="bold"
+                                android:textSize="17sp"
+                                android:textColor="#fff"/>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="135dp"
+                        android:orientation="horizontal"
                         android:layout_marginBottom="10dp"
-                        android:orientation="horizontal">
+                        android:layout_marginTop="20dp">
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_marginRight="5dp"
                             android:layout_weight="1"
                             android:gravity="center"
                             android:orientation="vertical"
+                            android:layout_marginRight="5dp"
                             app:cardCornerRadius="15dp">
 
                             <RelativeLayout
@@ -205,43 +251,60 @@
                                     android:id="@+id/marketTxt2"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:background="@color/colorAccent"
+                                    android:text="BET PLACED"
                                     android:gravity="center"
+                                    android:background="@drawable/rounded_border"
                                     android:paddingTop="10dp"
                                     android:paddingBottom="10dp"
-                                    android:text="BET PLACED"
-                                    android:textColor="#fff"
-                                    android:textSize="20sp"
-                                    android:textStyle="bold" />
+                                    android:textStyle="bold"
+                                    android:textSize="15sp"
+                                    android:textColor="#fff"/>
 
+
+                                <TextView
+                                    android:id="@+id/lifetime_bet"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/marketTxt2"
+                                    android:text="300"
+                                    android:textStyle="bold"
+                                    android:layout_centerHorizontal="true"
+                                    android:textSize="30sp"
+                                    android:layout_marginTop="18dp"
+                                    />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_below="@+id/marketTxt2"
+                                    android:layout_below="@+id/lifetime_bet"
+                                    android:text="LIFETIME"
+                                    android:textStyle="bold"
                                     android:layout_centerHorizontal="true"
-                                    android:layout_marginTop="20dp"
-                                    android:text="300"
-                                    android:textSize="35sp"
-                                    android:textStyle="bold" />
+                                    android:textSize="12sp"
+                                    android:layout_marginTop="6dp"
+                                    />
+
 
                                 <Button
-                                    android:id="@+id/btnMarket3"
+                                    android:id="@+id/lifetime_button"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginEnd="1dp"
+                                    android:layout_marginBottom="2dp"
                                     android:background="@android:color/transparent" />
 
                             </RelativeLayout>
 
                         </androidx.cardview.widget.CardView>
-
                         <androidx.cardview.widget.CardView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_marginRight="5dp"
                             android:layout_weight="1"
                             android:gravity="center"
                             android:orientation="vertical"
+                            android:layout_marginRight="5dp"
                             app:cardCornerRadius="15dp">
 
                             <RelativeLayout
@@ -252,25 +315,38 @@
                                     android:id="@+id/marketTxt3"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:background="@color/colorAccent"
+                                    android:text="BET AMOUNT"
                                     android:gravity="center"
+                                    android:background="@drawable/rounded_border"
                                     android:paddingTop="10dp"
                                     android:paddingBottom="10dp"
-                                    android:text="BET AMOUNT"
-                                    android:textColor="#fff"
-                                    android:textSize="20sp"
-                                    android:textStyle="bold" />
+                                    android:textStyle="bold"
+                                    android:textSize="15sp"
+                                    android:textColor="#fff"/>
 
+
+                                <TextView
+                                    android:id="@+id/lifetime_Bet_Amount"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/marketTxt3"
+                                    android:text="32946"
+                                    android:textStyle="bold"
+                                    android:layout_centerHorizontal="true"
+                                    android:textSize="30sp"
+                                    android:layout_marginTop="18dp"
+                                    />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_below="@+id/marketTxt3"
+                                    android:layout_below="@+id/lifetime_Bet_Amount"
+                                    android:text="LIFETIME"
+                                    android:textStyle="bold"
                                     android:layout_centerHorizontal="true"
-                                    android:layout_marginTop="20dp"
-                                    android:text="Rs. 32946"
-                                    android:textSize="35sp"
-                                    android:textStyle="bold" />
+                                    android:textSize="12sp"
+                                    android:layout_marginTop="6dp"
+                                    />
 
 
                             </RelativeLayout>
@@ -282,16 +358,17 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="135dp"
+                        android:orientation="horizontal"
                         android:layout_marginBottom="10dp"
-                        android:orientation="horizontal">
+                        android:layout_marginTop="20dp">
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_marginRight="5dp"
                             android:layout_weight="1"
                             android:gravity="center"
                             android:orientation="vertical"
+                            android:layout_marginRight="5dp"
                             app:cardCornerRadius="15dp">
 
                             <RelativeLayout
@@ -302,38 +379,60 @@
                                     android:id="@+id/marketTxt4"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:background="@color/colorAccent"
+                                    android:text="PROFIT"
                                     android:gravity="center"
+                                    android:background="@drawable/rounded_border"
                                     android:paddingTop="10dp"
                                     android:paddingBottom="10dp"
-                                    android:text="WIN"
-                                    android:textColor="#fff"
-                                    android:textSize="20sp"
-                                    android:textStyle="bold" />
+                                    android:textStyle="bold"
+                                    android:textSize="15sp"
+                                    android:textColor="#fff"/>
 
+
+                                <TextView
+                                    android:id="@+id/profitYesterday"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/marketTxt4"
+                                    android:text="5300"
+                                    android:textStyle="bold"
+                                    android:layout_centerHorizontal="true"
+                                    android:textSize="30sp"
+                                    android:layout_marginTop="18dp"
+                                    />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_below="@+id/marketTxt4"
+                                    android:layout_below="@+id/profitYesterday"
+                                    android:text="YESTERDAY"
+                                    android:textStyle="bold"
                                     android:layout_centerHorizontal="true"
-                                    android:layout_marginTop="20dp"
-                                    android:text="Rs. 25462"
-                                    android:textSize="35sp"
-                                    android:textStyle="bold" />
+                                    android:textSize="12sp"
+                                    android:layout_marginTop="6dp"
+                                    />
 
+
+                                <Button
+                                    android:id="@+id/btnMarket5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginEnd="0dp"
+                                    android:layout_marginBottom="0dp"
+                                    android:background="@android:color/transparent" />
 
                             </RelativeLayout>
 
                         </androidx.cardview.widget.CardView>
-
                         <androidx.cardview.widget.CardView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_marginRight="5dp"
                             android:layout_weight="1"
                             android:gravity="center"
                             android:orientation="vertical"
+                            android:layout_marginRight="5dp"
                             app:cardCornerRadius="15dp">
 
                             <RelativeLayout
@@ -344,25 +443,38 @@
                                     android:id="@+id/marketTxt5"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:background="@color/colorAccent"
+                                    android:text="PROFIT"
                                     android:gravity="center"
+                                    android:background="@drawable/rounded_border"
                                     android:paddingTop="10dp"
                                     android:paddingBottom="10dp"
-                                    android:text="Loose"
-                                    android:textColor="#fff"
-                                    android:textSize="20sp"
-                                    android:textStyle="bold" />
+                                    android:textStyle="bold"
+                                    android:textSize="15sp"
+                                    android:textColor="#fff"/>
 
+
+                                <TextView
+                                    android:id="@+id/profitLifetime"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/marketTxt5"
+                                    android:text="32946"
+                                    android:textStyle="bold"
+                                    android:layout_centerHorizontal="true"
+                                    android:textSize="30sp"
+                                    android:layout_marginTop="18dp"
+                                    />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_below="@+id/marketTxt5"
+                                    android:layout_below="@+id/profitLifetime"
+                                    android:text="LIFETIME"
+                                    android:textStyle="bold"
                                     android:layout_centerHorizontal="true"
-                                    android:layout_marginTop="20dp"
-                                    android:text="Rs. 1946"
-                                    android:textSize="35sp"
-                                    android:textStyle="bold" />
+                                    android:textSize="12sp"
+                                    android:layout_marginTop="6dp"
+                                    />
 
 
                             </RelativeLayout>
@@ -370,6 +482,8 @@
                         </androidx.cardview.widget.CardView>
 
                     </LinearLayout>
+
+
 
 
                 </LinearLayout>

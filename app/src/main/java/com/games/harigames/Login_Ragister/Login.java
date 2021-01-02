@@ -1,19 +1,27 @@
 package com.games.harigames.Login_Ragister;
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.games.harigames.Master.Home_master;
@@ -42,7 +50,7 @@ public class Login extends AppCompatActivity {
     String user_pass;
     RelativeLayout prelativeLayout;
     ProgressBar progressBar;
-    String roles ,upass;
+    String roles ,upass,user;
     @Override
     protected void onStop() {
 
@@ -60,6 +68,16 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        Validation validation= new Validation();
+//        if (!validation.isConnected()){
+//
+//
+//        }
+        if (!validation.isConnected(this)){
+            validation.showDialog(this,"","",null,true);
+            Toast.makeText(getApplicationContext(),"Please Connect Internet" ,Toast.LENGTH_LONG).show();
+        }
 
         prelativeLayout = findViewById(R.id.progress_bg);
         progressBar = findViewById(R.id.login_progress);
@@ -164,7 +182,7 @@ public class Login extends AppCompatActivity {
             String userName= preferences.getString("username","user");
             String user_role= preferences.getString("role","NaN");
             Toast.makeText(this, " "+restorePrefData(), Toast.LENGTH_SHORT).show();
-           if (user_role.equals("admin")){
+           if (user_role.equals("Admin")){
                Intent intent = new Intent(Login.this, Home_admin.class);
                intent.putExtra("user",userName);
                startActivity(intent);
@@ -235,7 +253,14 @@ public class Login extends AppCompatActivity {
                                                 Ragister_Master_Model user1 = snapshot.getValue( Ragister_Master_Model.class);
                                                 roles = user1.getRole();
                                                 upass = user1.getPassword();
-                                                savePrefsData(user1.getName(),user1.getPassword(),user1.getRole());
+                                                user = user1.getUserName();
+                                                if (upass.contains(user_pass)){
+                                                    savePrefsData(user1.getName(),user1.getPassword(),user1.getRole());
+                                                }else {
+                                                    Toast.makeText(Login.this, "Wrong Password", Toast.LENGTH_SHORT).show();
+                                                    return;
+                                                }
+
                                                 Log.d("log userrrr", "onDataChange: "+user1.getRole());
                                             }
 
@@ -243,12 +268,12 @@ public class Login extends AppCompatActivity {
 
 //
                                           if (upass.contains(user_pass) &&roles.contains("Admin")){
-                                              FirebaseUser userr = mAuth.getCurrentUser();
+                                   //
                                               Toast.makeText(Login.this, "SignUp Successful !",
                                                       Toast.LENGTH_SHORT).show();
 
                                               Intent intent = new Intent(Login.this, Home_admin.class);
-                                              intent.putExtra("user",userr);
+                                              intent.putExtra("user",user);
 
                                               startActivity(intent);
                                               //*****************animation when witch activity*********************
@@ -260,7 +285,7 @@ public class Login extends AppCompatActivity {
                                                       Toast.LENGTH_SHORT).show();
 
                                               Intent intent = new Intent(Login.this, Home_master.class);
-                                              //intent.putExtra("user",userr);
+                                              intent.putExtra("user",user);
 
                                               startActivity(intent);
                                               //*****************animation when witch activity*********************
@@ -274,7 +299,7 @@ public class Login extends AppCompatActivity {
                                                       Toast.LENGTH_SHORT).show();
 
                                               Intent intent = new Intent(Login.this, Home_user.class);
-                                             // intent.putExtra("user",userr);
+                                              intent.putExtra("user",user);
 
                                               startActivity(intent);
                                               //*****************animation when witch activity*********************
@@ -349,4 +374,6 @@ public class Login extends AppCompatActivity {
 
         editor.commit();
     }
+
+
 }

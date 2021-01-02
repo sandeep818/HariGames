@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#C5CAE9">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:orientation="vertical"
+                    android:background="#FFC107">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="18dp"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:text="Bhootnath Morning"
+                        android:textColor="#fff"
+                        android:textSize="28sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:text="Jodi Play"
+                        android:textColor="#fff"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:text="Balance: 2540.00"
+                        android:textColor="#fff"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="550dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="120dp"
+                    android:layout_marginRight="0dp"
+                    android:background="@drawable/rounded_border_dark"
+                    android:orientation="vertical">
+                    <RadioGroup
+                        android:id="@+id/Radiobutton1_single_patti"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal"
+                        android:background="#fff"
+                        android:padding="5dp">
+
+                        <RadioButton
+                            android:id="@+id/open_single_patti"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Open 10:15 AM"
+                            android:textColor="#000"
+                            android:textSize="18sp" />
+
+                        <RadioButton
+                            android:id="@+id/close_single_patti"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Close 12:15 PM"
+                            android:textColor="#000"
+                            android:textSize="18sp" />
+                    </RadioGroup>
+
+                    <LinearLayout
+                        android:id="@+id/bet_select_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="0dp"
+                        android:padding="0dp">
+
+
+
+
+                    </LinearLayout>
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:columnCount="4"
+                        android:id="@+id/grid_bet_selected0"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/rounded_fill_yellow"
+                        android:padding="0dp">
+
+                        <TextView
+                            android:id="@+id/click_toShow0"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Select Panna 0"
+                            android:textColor="#fff"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        >
+
+
+                        <GridView
+                            android:id="@+id/grid_viewnum0"
+                            android:layout_width="match_parent"
+                            android:layout_height="110dp"
+                            android:layout_marginBottom="0dp"
+                            android:numColumns="5"
+
+
+                             />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/rounded_fill_yellow"
+                        android:padding="0dp">
+
+                        <TextView
+                            android:id="@+id/click_toShow1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Select Panna 1"
+                            android:textColor="#fff"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        >
+
+
+                        <GridView
+                            android:id="@+id/grid_viewnum1"
+                            android:layout_width="match_parent"
+                            android:layout_height="110dp"
+                            android:layout_marginBottom="0dp"
+                            android:numColumns="5"
+
+
+                            />
+
+                    </LinearLayout>
+                    <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_fill_yellow"
+                    android:padding="0dp">
+
+                    <TextView
+                        android:id="@+id/click_toShow2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Select Panna 2"
+                        android:textColor="#fff"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        >
+
+
+                        <GridView
+                            android:id="@+id/grid_viewnum2"
+                            android:layout_width="match_parent"
+                            android:layout_height="110dp"
+                            android:layout_marginBottom="0dp"
+                            android:numColumns="5"
+
+
+                            />
+
+                    </LinearLayout>
+                    <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_fill_yellow"
+                    android:padding="0dp">
+
+                    <TextView
+                        android:id="@+id/click_toShow3"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Select Panna 3"
+                        android:textColor="#fff"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        >
+
+
+                        <GridView
+                            android:id="@+id/grid_viewnum3"
+                            android:layout_width="match_parent"
+                            android:layout_height="110dp"
+                            android:layout_marginBottom="0dp"
+                            android:numColumns="5"
+
+
+                            />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/rounded_fill_yellow"
+                        android:padding="0dp">
+
+                        <TextView
+                            android:id="@+id/click_toShow4"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Select Panna 4"
+                            android:textColor="#fff"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        >
+
+
+                        <GridView
+                            android:id="@+id/grid_viewnum4"
+                            android:layout_width="match_parent"
+                            android:layout_height="110dp"
+                            android:layout_marginBottom="0dp"
+                            android:numColumns="5"
+
+
+                            />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/rounded_fill_yellow"
+                        android:padding="0dp">
+
+                        <TextView
+                            android:id="@+id/click_toShow5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Select Panna 5"
+                            android:textColor="#fff"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        >
+
+
+                        <GridView
+                            android:id="@+id/grid_viewnum5"
+                            android:layout_width="match_parent"
+                            android:layout_height="110dp"
+                            android:layout_marginBottom="0dp"
+                            android:numColumns="5"
+
+
+                            />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/rounded_fill_yellow"
+                        android:padding="0dp">
+
+                        <TextView
+                            android:id="@+id/click_toShow6"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Select Panna 6"
+                            android:textColor="#fff"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        >
+
+
+                        <GridView
+                            android:id="@+id/grid_viewnum6"
+                            android:layout_width="match_parent"
+                            android:layout_height="110dp"
+                            android:layout_marginBottom="0dp"
+                            android:numColumns="5"
+
+
+                            />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/rounded_fill_yellow"
+                        android:padding="0dp">
+
+                        <TextView
+                            android:id="@+id/click_toShow7"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Select Panna 7"
+                            android:textColor="#fff"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        >
+
+
+                        <GridView
+                            android:id="@+id/grid_viewnum7"
+                            android:layout_width="match_parent"
+                            android:layout_height="110dp"
+                            android:layout_marginBottom="0dp"
+                            android:numColumns="5"
+
+
+                            />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/rounded_fill_yellow"
+                        android:padding="0dp">
+
+                        <TextView
+                            android:id="@+id/click_toShow8"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Select Panna 3"
+                            android:textColor="#fff"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        >
+
+
+                        <GridView
+                            android:id="@+id/grid_viewnum8"
+                            android:layout_width="match_parent"
+                            android:layout_height="110dp"
+                            android:layout_marginBottom="0dp"
+                            android:numColumns="5"
+
+
+                            />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/rounded_fill_yellow"
+                        android:padding="0dp">
+
+                        <TextView
+                            android:id="@+id/click_toShow9"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Select Panna 9"
+                            android:textColor="#fff"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        >
+
+
+                        <GridView
+                            android:id="@+id/grid_viewnum9"
+                            android:layout_width="match_parent"
+                            android:layout_height="110dp"
+                            android:layout_marginBottom="0dp"
+                            android:numColumns="5"
+
+
+                            />
+
+                    </LinearLayout>
+
+
+                    <EditText
+                        android:id="@+id/enter_amount_single_patti"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/rounded_fill_white"
+                        android:ems="10"
+                        android:hint="Enter amount"
+                        android:inputType="number"
+                        android:paddingLeft="15dp"
+                        android:textColorHint="#000" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="15dp"
+                        android:padding="0dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/left_rounded_fill"
+                            android:gravity="center"
+                            android:text="Total"
+                            android:textColor="#fff"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+
+                            android:id="@+id/total_amount_single_patti"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            android:layout_centerHorizontal="true"
+                            android:ems="10"
+                            android:textSize="25sp"
+                            android:gravity="center"
+                            android:inputType="none"
+                            android:background="@drawable/right_rounded_fill_white"/>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="15dp"
+                        android:padding="0dp">
+
+
+                        <Button
+                            android:id="@+id/placebet_single_patti"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/rounded_fill_yellow"
+                            android:text="Place Bet"
+                            android:textColor="@android:color/white"
+                            android:textSize="18sp" />
+
+                        <Button
+                            android:id="@+id/button2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/rounded_fill_yellow"
+                            android:text="Reset"
+                            android:textColor="@android:color/white"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>

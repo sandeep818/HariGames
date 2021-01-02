@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -25,6 +27,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.games.harigames.Login_Ragister.Login;
 import com.games.harigames.Login_Ragister.Ragister_user;
+import com.games.harigames.Login_Ragister.Validation;
 import com.games.harigames.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -55,6 +58,33 @@ public class Home_user extends AppCompatActivity implements BottomNavigationView
       //  myScrollView.setVerticalScrollBarEnabled(false);
       //  myScrollView.setHorizontalScrollBarEnabled(false);
         dialog = new Dialog(this);
+        Validation validation=new Validation();
+        if (!validation.isConnected(this)){
+            validation.showDialog(this,"","",null,true);
+            Toast.makeText(getApplicationContext(),"Please Connect Internet" ,Toast.LENGTH_LONG).show();
+        }
+
+        if (validation.isTimeAutomatic(getApplicationContext())){
+
+            try {
+                if (Settings.Global.getInt(getContentResolver(),Settings.Global.AUTO_TIME_ZONE)!=1){
+
+                    validation.showDialog(this,"please select device date and time to Automatic","Date&Time",new Intent(Settings.ACTION_DATE_SETTINGS),false);
+//                    startActivityForResult(new Intent(Settings.ACTION_DATE_SETTINGS),0);
+                    Toast.makeText(getApplication().getApplicationContext(), " Otherwise unable to place bet", Toast.LENGTH_LONG).show();
+                }
+            }catch (Exception e){
+
+            }
+
+        }else {
+            validation.showDialog(this,"please select device date and time to Automatic","Date&Time",new Intent(Settings.ACTION_DATE_SETTINGS),false);
+            Toast.makeText(getApplication().getBaseContext(), "Please select Automatic date and time", Toast.LENGTH_LONG).show();
+            // startActivityForResult(new Intent(Settings.ACTION_DATE_SETTINGS),0);
+//    Toast.makeText(this, " Otherwise unable to place bet", Toast.LENGTH_SHORT).show();
+
+        }
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
       //  toolbar.animate().alpha(1).setDuration(300).setStartDelay(1600);
@@ -100,10 +130,7 @@ public class Home_user extends AppCompatActivity implements BottomNavigationView
 //                       editor.putBoolean("isLogin",false);
 //                       editor.clear();
 //                        editor.apply();
-                       FirebaseAuth.getInstance().signOut();
-                       Intent intent = new Intent(Home_user.this, Login.class);
-                       startActivity(intent);
-                       finish();
+                       logout_user();
                        break;
                }
 
@@ -174,11 +201,12 @@ public class Home_user extends AppCompatActivity implements BottomNavigationView
     }
 
     private void logout_user() {
-        FirebaseAuth.getInstance().signOut();
+
         Toast.makeText(this, "Logout Successful !", Toast.LENGTH_SHORT).show();
         SharedPreferences pref = getApplicationContext().getSharedPreferences("loginDetails",MODE_PRIVATE);
         SharedPreferences.Editor editor= pref.edit();
         editor.putBoolean("isLogin",false);
+        editor.commit();
         Intent intent = new Intent(Home_user.this,Login.class);
         startActivity(intent);
         finish();
@@ -280,5 +308,29 @@ public class Home_user extends AppCompatActivity implements BottomNavigationView
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         mdrawerLayout.closeDrawer(GravityCompat.START);
         dialog.show();
+    }
+    static final int AUTO_TIME_ZONE=1;
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Validation validation = new Validation();
+        if (requestCode==AUTO_TIME_ZONE){
+            Toast.makeText(this, "timt  =======", Toast.LENGTH_SHORT).show();
+
+            if (validation.isTimeAutomatic(getApplicationContext())){
+
+
+                finish();
+                startActivity(getIntent());
+
+            }else {
+                validation.showDialog(this,"please select device date and time to Automatic","Date&Time",new Intent(Settings.ACTION_DATE_SETTINGS),false);
+                Toast.makeText(getApplication().getBaseContext(), "Please select Automatic date and time", Toast.LENGTH_LONG).show();
+                // startActivityForResult(new Intent(Settings.ACTION_DATE_SETTINGS),0);
+//    Toast.makeText(this, " Otherwise unable to place bet", Toast.LENGTH_SHORT).show();
+
+            }
+        }
+
     }
 }

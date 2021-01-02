@@ -6,6 +6,7 @@ public class UserAllDataModel {
     String status;
     String credit_ref;
     String downLine;
+    String balance;
 
 
     String exposer_limit;
@@ -75,7 +76,16 @@ public class UserAllDataModel {
     public UserAllDataModel(){
 
     }
-    public UserAllDataModel( String upLine,String password,String mobile,String downLine,String created_by, String name, String role, String status, String credit_ref, String exposer_limit, String username) {
+
+    public String getBalance() {
+        return balance;
+    }
+
+    public void setBalance(String balance) {
+        this.balance = balance;
+    }
+
+    public UserAllDataModel(String balance, String upLine, String password, String mobile, String downLine, String created_by, String name, String role, String status, String credit_ref, String exposer_limit, String username) {
         this.name = name;
         this.created_by=created_by;
         this.role = role;
@@ -86,7 +96,7 @@ public class UserAllDataModel {
         this.mobile=mobile;
         this.password=password;
         this.upLine=upLine;
-
+        this.balance= balance;
 
 
         this.userName=username;

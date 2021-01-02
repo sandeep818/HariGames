@@ -9,20 +9,22 @@ import android.widget.TextView;
 
 import com.games.harigames.R;
 
+import java.util.List;
+
 public class MainGAdapter extends BaseAdapter {
     Context context;
-    String[] betnum;
+    List<String> betnum;
     LayoutInflater inflater;
     TextView text_num;
 
-    public MainGAdapter(Context context, String[] betnum) {
+    public MainGAdapter(Context context, List betnum) {
         this.context = context;
         this.betnum = betnum;
     }
 
     @Override
     public int getCount() {
-        return betnum.length;
+        return betnum.size();
     }
 
     @Override
@@ -37,6 +39,7 @@ public class MainGAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
         if (inflater==null){
             inflater= (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         }
@@ -45,8 +48,8 @@ public class MainGAdapter extends BaseAdapter {
 
         }
          text_num = (TextView) convertView.findViewById(R.id.num_Text);
-        text_num.setText(betnum[position]);
-        text_num.setTag(position);
+        text_num.setText(betnum.get(position));
+        text_num.setTag(betnum.get(position));
         return convertView;
     }
 }

@@ -13,6 +13,8 @@ import android.widget.SearchView;
 
 import androidx.fragment.app.Fragment;
 
+import com.games.harigames.Place_bet.Bet_adapter;
+import com.games.harigames.Place_bet.Plece_bet;
 import com.games.harigames.R;
 import com.games.harigames.getAllUser.UserAllDataModel;
 import com.games.harigames.getAllUser.UserlistAdapter;
@@ -30,11 +32,11 @@ import java.util.ArrayList;
  */
 public class Support extends Fragment {
 
-    ArrayList<UserAllDataModel> dataModels;
+    ArrayList<Plece_bet> dataModels;
     ListView listView;
     ProgressBar myProgressBar;
     SearchView searchView;
-    private static UserlistAdapter adapter;
+    private static Bet_adapter adapter;
 
 
     public Support() {
@@ -108,17 +110,17 @@ public class Support extends Fragment {
 //}
 //////////////////////////////////////////////////////////////////////////////////////
 
-public ArrayList<UserAllDataModel> getit (final ProgressBar progressBar){
+public ArrayList<Plece_bet> getit (final ProgressBar progressBar){
     progressBar.setIndeterminate(true);
     progressBar.setVisibility(View.VISIBLE);
-    final ArrayList<UserAllDataModel> downloadData=new ArrayList<>();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("User");
+    final ArrayList<Plece_bet> downloadData=new ArrayList<>();
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Place_bet");
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
                                                @Override
                                                public void onDataChange(DataSnapshot dataSnapshot) {
-                                                   ArrayList<UserAllDataModel> userAllDataModels = new ArrayList<UserAllDataModel>();
+                                                   ArrayList<Plece_bet> userAllDataModels = new ArrayList<Plece_bet>();
                                                    for (DataSnapshot userSnapshot: dataSnapshot.getChildren()) {
-                                                       UserAllDataModel allDataModel = userSnapshot.getValue(UserAllDataModel.class);
+                                                       Plece_bet allDataModel =userSnapshot.getValue(Plece_bet.class);
                                                        userAllDataModels.add(allDataModel);
                                                        downloadData.add(allDataModel);
                                                        Log.d("allu", "onDataChange: "+downloadData.toString());
@@ -175,13 +177,13 @@ public ArrayList<UserAllDataModel> getit (final ProgressBar progressBar){
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                adapter.getFilter().filter(query);
+//                adapter.getFilter().filter(query);
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                adapter.getFilter().filter(newText);
+//                adapter.getFilter().filter(newText);
 
                 return false;
             }
@@ -190,7 +192,7 @@ public ArrayList<UserAllDataModel> getit (final ProgressBar progressBar){
       //  dataModels=new UserApi(getContext()).retrive(listView,myProgressBar);
         dataModels =getit(myProgressBar);
         Log.d("oks", "onCreateView: "+dataModels);
-        adapter=new UserlistAdapter(dataModels,getContext());
+        adapter=new Bet_adapter(dataModels,getContext());
         listView.setAdapter(adapter);
 
 
@@ -198,7 +200,7 @@ public ArrayList<UserAllDataModel> getit (final ProgressBar progressBar){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                UserAllDataModel dataModel= dataModels.get(position);
+                Plece_bet dataModel= dataModels.get(position);
 
                // Snackbar.make(view, dataModel.getName()+"\n"+" API: "+dataModel.getStatus(), Snackbar.LENGTH_LONG)
                //         .setAction("No action", null).show();
