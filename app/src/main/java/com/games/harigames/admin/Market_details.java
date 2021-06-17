@@ -22,7 +22,7 @@ import java.util.ArrayList;
 
 
 public class Market_details extends AppCompatActivity {
-    TextView marketName,today_bet,today_bet_amount,lifetime_bet,lifetime_Bet_Amount,market_report;
+    TextView marketName,today_bet,today_bet_amount,lifetime_bet,lifetime_Bet_Amount,market_report,result_btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -30,6 +30,7 @@ public class Market_details extends AppCompatActivity {
         setContentView(R.layout.activity_market_details);
         ActionBar actionBar =getSupportActionBar();
         today_bet=findViewById(R.id.today_bet);
+        result_btn =findViewById(R.id.result_btn);
         today_bet_amount=findViewById(R.id.today_bet_amount);
         lifetime_bet=findViewById(R.id.lifetime_bet);
         lifetime_Bet_Amount=findViewById(R.id.lifetime_Bet_Amount);
@@ -43,6 +44,14 @@ public class Market_details extends AppCompatActivity {
                 Intent intent = new Intent(Market_details.this,Market_report.class);
                 intent.putExtra("market_name",market);
                 startActivity(intent);
+            }
+        });
+        result_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(Market_details.this,Bet_result.class);
+                intent1.putExtra("marketName",market);
+                startActivity(intent1);
             }
         });
 
